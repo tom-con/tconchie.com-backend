@@ -51,8 +51,8 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :tconchie_backend, TconchieBackend.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "tconchie_backend_dev",
-  hostname: "localhost",
-  pool_size: 10
+  username: System.get_env("PSQL_USER"),
+  password: System.get_env("PSQL_PASS"),
+  database: System.get_env("PSQL_DATABASE"),
+  hostname: System.get_env("PSQL_HOST"),
+  pool_size: 20
